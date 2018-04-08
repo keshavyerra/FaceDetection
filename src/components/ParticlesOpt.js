@@ -1,10 +1,10 @@
 const ParticlesOpt = {
   "particles": {
     "number": {
-      "value": 250,
+      "value": 100,
       "density": {
         "enable": true,
-        "value_area": 800
+        "value_area": 400
       }
     },
     "color": {
@@ -25,7 +25,7 @@ const ParticlesOpt = {
       "random": true,
       "anim": {
         "enable": false,
-        "speed": 1,
+        "speed": 5,
         "opacity_min": 0.1,
         "sync": false
       }
@@ -91,7 +91,7 @@ const ParticlesOpt = {
       },
       "repulse": {
         "distance": 162.41544246026902,
-        "duration": 0.4
+        "duration": 0.1
       },
       "push": {
         "particles_nb": 4

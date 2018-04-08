@@ -4,8 +4,7 @@ body {
   font-family: 'Nova Flat', Courier, monospace;
   font-size: 25px;
   font-weight: bold;
-  background: -linear-gradient(to left, rgba(138,87,87,0.89) 0%, rgba(191,105,105,0.9) 50%, rgba(128,72,77,0.9) 100%);
   background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
-  background-image: -linear-gradient(to right, #ed6ea0 0%, #ec8c69 100%);
+
 }
 
