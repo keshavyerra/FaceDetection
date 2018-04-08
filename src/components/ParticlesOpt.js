@@ -3,7 +3,7 @@ const ParticlesOpt = {
     "number": {
       "value": 100,
       "density": {
-        "enable": true,
+        "enable": false,
         "value_area": 400
       }
     },
@@ -32,7 +32,7 @@ const ParticlesOpt = {
     },
     "size": {
       "value": 3,
-      "random": true,
+      "random": false,
       "anim": {
         "enable": false,
         "speed": 40,
