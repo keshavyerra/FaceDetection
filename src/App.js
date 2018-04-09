@@ -8,6 +8,8 @@ import Rank from './components/rank/Rank';
 import Particles from 'react-particles-js';
 import ParticlesOpt from './components/ParticlesOpt'
 import FaceRecognition from './components/FaceRecognition/FaceRecognition'
+import SignIn from './components/SignIn/SignIn';
+
 
 const app = new Clarifai.App({
  apiKey: 'e59ac683ee4c4dd99634da9636c6c66a'
@@ -20,6 +22,7 @@ class App extends Component {
       input: '',
       imageUrl: '',
       box: {},
+      route: 'SignIn',
     }
   }
 
@@ -44,6 +47,12 @@ class App extends Component {
     this.setState({input: event.target.value});
   }
 
+ onRouteChange = (route) => {
+this.setState({route: route});
+
+ }
+
+
   onButtonClick = () => {
      this.setState({imageUrl: this.state.input});
      app.models.predict(Clarifai.FACE_DETECT_MODEL,
@@ -56,14 +65,21 @@ class App extends Component {
     return (
       <div className="App">
        <Particles className="particles" params={ParticlesOpt} /> 
-       <Navigation />
+       <Navigation onRouteChange = {this.onRouteChange}/>
+       {this.state.route === 'SignIn' ?
+       <SignIn onRouteChange = {this.onRouteChange} />
+       :
+       <div>
        <Logo />
        <Rank />
        <ImageForm onInputChange={this.onInputChange} 
        onButtonClick = {this.onButtonClick} />
        <FaceRecognition box={this.state.box} imageUrl = {this.state.imageUrl}/>
+       </div>  
+       }    
       </div>
       );
+    
   }
 }
 

@@ -5,6 +5,7 @@
   "homepage": "http://keshavyerra.github.io/faceDetection",
   "dependencies": {
     "clarifai": "^2.6.0",
+    "rainyday.js": "^0.1.7",
     "react": "^16.3.0",
     "react-dom": "^16.3.0",
     "react-particles-js": "^2.1.2",
