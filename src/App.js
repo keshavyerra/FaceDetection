@@ -22,24 +22,31 @@ class App extends Component {
     this.state = {
       input: '',
       imageUrl: '',
-      box: {},
+      box: [],
       route: 'signin',
       isSignedIn: false,
     }
   }
 
  calculateFaceLocation = (data) => {
-    const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;
-    const image = document.getElementById('inputimage');
-    const width = Number(image.width);
-    const height = Number(image.height);
-    return {
-      leftCol: clarifaiFace.left_col * width,
-      topRow: clarifaiFace.top_row * height,
-      rightCol: width - (clarifaiFace.right_col * width),
-      bottomRow: height - (clarifaiFace.bottom_row * height)
-    }
-  }
+    const clarifaiFace = data.outputs[0].data.regions.map( (box) => { return box.region_info.bounding_box})
+ 
+ const image = document.getElementById('inputimage');
+ const width = Number(image.width);
+ const height = Number(image.height);
+ const box = clarifaiFace.map((face) => {
+ return {
+ leftCol: face.left_col * width,
+ topRow: face.top_row * height,
+ rightCol: width - (face.right_col * width),
+ bottomRow: height - (face.bottom_row * height)
+ }
+ 
+ }
+ 
+ );
+ return box;
+}
 
  displayFaceBox = (box) => {
     this.setState({box: box});
